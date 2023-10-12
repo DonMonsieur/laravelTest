@@ -1,65 +1,29 @@
 #JC Monsieur Edmund Tubiera
 
-## Requirements
-
-Please ensure that you have the following software installed on your system before proceeding with the installation:
-
-Latest Composer Version (https://getcomposer.org/)
-Latest NodeJS Version (https://nodejs.org/en)
-PHP Version 8.2.0 (https://www.php.net/downloads.php)
- 
-### Backend Dependencies
-	
-	Laravel Framework 10.28.0
-
-
-### Additional Tools
-
-    MySQL 8.0.31
-
 ## Installation
 
 To install the project, follow the steps below:
 
     1. Clone the project repository by executing the following command in your terminal or command prompt:
 
-    	git clone https://github.com/DonMonsieur/backend.git
+    	git clone https://github.com/DonMonsieur/laravelTest.git
 
-### Frontend
+### Backend
 
-  	2.  Open your terminal or command prompt and navigate to the "react" folder within the project directory:
+    1.	Update the PHP dependencies using Composer by running the following command:
 
-		cd backend_exam/react
+    	composer update
 
-	3.	Install the required dependencies by running the following command:
+    2.	Rename the .env.example file to .env. Change the DB_DATABASE on your database name
 
-		npm install
+    	DB_DATABASE='YOUR DATABASE NAME'
 
-	4.	Build the frontend assets by executing the following command:
+    3.	Run the database migrations and seed the initial data by executing the following command:
 
-	    npm run dev
+    	php artisan migrate:fresh --seed
 
-###	Backend
-
-	5.  Open your terminal or command prompt and navigate to the "backend_exam" folder within the project directory:
-
-		cd backend_exam or cd ..
-
-	6.	Update the PHP dependencies using Composer by running the following command:
-
-		composer update
-
-	7.	Rename the .env.example file to .env.
-
-	8.	Run the database migrations and seed the initial data by executing the following command:
-
-		php artisan migrate:fresh --seed
-
-	10.	Start the PHP development server by running the following command:
+    4.	Start the PHP development server by running the following command:
 
     	php artisan serve
 
-#Setup
-### Localhost
-
-	- ensure that the result of the npm run dev of frontend and php artisan serve of backend are <b>localhost:5173</b> and <b>http://127.0.0.1:8000</b>respectively
+### NOTE: This project does not have a frontend. Its purpose is to test API routes to confirm the implementation of one-to-many and many-to-many relationships in Eloquent.
