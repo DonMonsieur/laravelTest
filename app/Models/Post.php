@@ -16,7 +16,16 @@ class Post extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'category_posts')->withTimestamps();
+        return $this->belongsToMany(Category::class, 'category_posts')
+            ->withPivot('subcategory_id')
+            ->withTimestamps();
+    }
+
+    public function subcategories()
+    {
+        return $this->belongsToMany(SubCategory::class, 'category_posts')
+            ->withPivot('category_id')
+            ->withTimestamps();
     }
 
     public static function postsWithDistinctCategories()

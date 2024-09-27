@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\SubCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,10 +21,12 @@ class CategoryPostFactory extends Factory
     {
         $category = Category::inRandomOrder()->first();
         $post = Post::inRandomOrder()->first();
+        $subcategory = SubCategory::inRandomOrder()->first();
 
         return [
             'category_id' => $category ? $category->id : null,
             'post_id' => $post ? $post->id : null,
+            'subcategory_id' => $subcategory ? $subcategory->id : null,
         ];
     }
 }
